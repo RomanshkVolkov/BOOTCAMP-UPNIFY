@@ -1,14 +1,14 @@
 /* eslint-disable import/prefer-default-export */
-import JWT from 'jsonwebtoken';
-import dotenv from 'dotenv';
+import JWT from "jsonwebtoken";
+import dotenv from "dotenv";
 
 dotenv.config();
 
 export const verifyToken = (req, res, next) => {
-    const token = req.headers['x-access-token'];
+    const token = req.headers["x-access-token"];
     if (!token) {
         return res.status(401).json({
-            message: 'No token provided',
+            message: "No token provided",
         });
     }
 
@@ -20,7 +20,7 @@ export const verifyToken = (req, res, next) => {
         next();
     } catch (error) {
         res.status(401).json({
-            message: 'Unauthorized',
+            message: "Unauthorized",
         });
     }
 };

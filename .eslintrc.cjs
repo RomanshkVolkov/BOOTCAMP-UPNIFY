@@ -9,5 +9,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  rules: {},
+  rules: {
+    "consistent-return": 2,
+    "indent": [4, 4],
+    "no-else-return": 1,
+    "semi": [1, "always"],
+    "space-unary-ops": 2
+  },
 };

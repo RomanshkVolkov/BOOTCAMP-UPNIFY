@@ -4,7 +4,7 @@ import { verifyToken } from '../middlewares/auth.js';
 
 const router = Router();
 
-router.get('/', verifyToken, UsersController.getUsers);
+router.get('/', UsersController.getUsers);
 router.post('/login', UsersController.login);
 
 

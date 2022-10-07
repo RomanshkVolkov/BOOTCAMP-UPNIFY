@@ -1,6 +1,6 @@
 import { CategoriesSchema } from "../models/schemas/categories.schema.js";
 
-const getCategoryById = async (id)  => {
+const getCategoryById = async (id) => {
     const category = await CategoriesSchema.findOne({
         where: {
             id: id
@@ -16,7 +16,6 @@ export const getCategory = async (req, res) => {
     const { id } = req.params;
     try {
 
-        
         const category = await getCategoryById(id);
 
         console.log(category);
@@ -32,10 +31,10 @@ export const getCategory = async (req, res) => {
 export const createCategoria = async (req, res) => {
     const { categoria } = req.body;
     try {
-    const newCategory = await CategoriesSchema.create({
-        categoria: categoria
-    })
-    return res .send(newCategory);
+        const newCategory = await CategoriesSchema.create({
+            categoria: categoria
+        })
+        return res.send(newCategory);
 
     } catch (e) {
         return res.status(404).send(`No se ha podido crear la categoria ${categoria}`);
@@ -64,8 +63,8 @@ export const deleteCategoria = async (req, res) => {
         let deleteCategory = await getCategoryById(id);
 
         deleteCategory = await deleteCategory.destroy();
-        
-    return res.send(`Categoria ${id} eliminada`);
+
+        return res.send(`Categoria ${id} eliminada`);
     } catch (e) {
         res.status(404).send(`${e.message}`);
     }
